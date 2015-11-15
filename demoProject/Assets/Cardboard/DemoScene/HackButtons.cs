@@ -15,7 +15,7 @@ public class HackButtons : MonoBehaviour {
 
 		Button button = GetComponent<Button>();
 		ColorBlock colors = button.colors;
-		colors.highlightedColor = new Color(215.0F / 255.0F, 243.0F / 255.0F, 243.0F / 255.0F, 1.0F);
+		colors.highlightedColor = new Color(150.0F / 255.0F, 240.0F / 255.0F, 240.0F / 255.0F, 1.0F);
 		button.colors = colors;
 	}
 
@@ -45,7 +45,9 @@ public class HackButtons : MonoBehaviour {
 	IEnumerator ExecuteAfterTime(float time) {
    		yield return new WaitForSeconds(time);
  
-     	Debug.Log("Jump to new camera position");
+ 		Vector3 newPosition = new Vector3(100.0F, 0.0F, 0.0F);
+ 		GameObject cameraObj = GameObject.Find("CardboardMain");
+ 		cameraObj.transform.position = newPosition;
  	}
 
 	private Text AnswerText() {
