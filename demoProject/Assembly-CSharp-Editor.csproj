@@ -80,7 +80,7 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
  <Reference Include="StreetViewConverterTool">
- <HintPath>/Users/j0hns3n/Development/unity/demo/demoProject/Assets/StreetViewConverterPanoramas/StreetViewConverterTools/StreetViewConverterTool.dll</HintPath>
+ <HintPath>/Users/j0hns3n/Development/unity/IoE/demoProject/Assets/StreetViewConverterPanoramas/StreetViewConverterTools/StreetViewConverterTool.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>
