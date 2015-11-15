@@ -1,31 +1,52 @@
 ﻿using UnityEngine;
-using System;
 using UnityEngine.UI;
+using System;
+using System.Collections;
 
-//[RequireComponent(typeof(Collider))]
 public class HackButtons : MonoBehaviour {
 
 	public void SetGazedAt(bool gazedAt) {
-		
-		Text textObj = GetComponentInChildren<Text>();
-		Text answerText = AnswerText();
-
-		if (String.Equals(textObj.text, "January, 1969")) {
-			answerText.text = "Correct!";
-		} else {
-			answerText.text = "Incorrect.";
-		}
 	}
 
 	public void ResetAnswerText() {
+
 		Text answerText = AnswerText();
 		answerText.text = "Choose an answer.";
+
+		Button button = GetComponent<Button>();
+		ColorBlock colors = button.colors;
+		colors.highlightedColor = new Color(215.0F / 255.0F, 243.0F / 255.0F, 243.0F / 255.0F, 1.0F);
+		button.colors = colors;
 	}
 
 	public void SelectAnswer() {
+
+		Text textObj = GetComponentInChildren<Text>();
 		Text answerText = AnswerText();
-		answerText.text = "Something clicked!";
+
+		Button button = GetComponent<Button>();
+		ColorBlock colors = button.colors;
+
+		if (String.Equals(textObj.text, "January, 1969")) {
+
+			colors.highlightedColor = Color.green;
+			answerText.text = "Correct!";
+			StartCoroutine(ExecuteAfterTime(2.0F)); // jump to new sphere.
+
+		} else {
+
+			answerText.text = "Incorrect.";
+			colors.highlightedColor = Color.red;
+		}
+
+		button.colors = colors;
 	}
+
+	IEnumerator ExecuteAfterTime(float time) {
+   		yield return new WaitForSeconds(time);
+ 
+     	Debug.Log("Jump to new camera position");
+ 	}
 
 	private Text AnswerText() {
 		GameObject answerTextObj = GameObject.Find("AnswerText");
