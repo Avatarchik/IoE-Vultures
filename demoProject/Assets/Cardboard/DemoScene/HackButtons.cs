@@ -8,29 +8,27 @@ public class HackButtons : MonoBehaviour {
 	public void SetGazedAt(bool gazedAt) {
 		
 		Text textObj = GetComponentInChildren<Text>();
+		Text answerText = AnswerText();
 
-		GameObject answerTextObj = GameObject.Find("AnswerText");
-		Text answerText = answerTextObj.GetComponent<Text>();
-
-		if (String.Equals(textObj.text, "Answer A")) {
-			answerText.text = "A";
-		} else if (String.Equals(textObj.text, "Answer B")) {
-			answerText.text = "B";
-		} else if (String.Equals(textObj.text, "Answer C")) {
-			answerText.text = "C";
+		if (String.Equals(textObj.text, "January, 1969")) {
+			answerText.text = "Correct!";
+		} else {
+			answerText.text = "Incorrect.";
 		}
 	}
 
 	public void ResetAnswerText() {
-		GameObject answerTextObj = GameObject.Find("AnswerText");
-		Text answerText = answerTextObj.GetComponent<Text>();
+		Text answerText = AnswerText();
 		answerText.text = "Choose an answer.";
 	}
 
 	public void SelectAnswer() {
-		GameObject answerTextObj = GameObject.Find("AnswerText");
-		Text answerText = answerTextObj.GetComponent<Text>();
-
+		Text answerText = AnswerText();
 		answerText.text = "Something clicked!";
+	}
+
+	private Text AnswerText() {
+		GameObject answerTextObj = GameObject.Find("AnswerText");
+		return answerTextObj.GetComponent<Text>();
 	}
 }
